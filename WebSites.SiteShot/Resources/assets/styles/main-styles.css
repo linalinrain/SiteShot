@@ -1,0 +1,880 @@
+
+/* НАДО ПРИБРАТЬСЯ И ВЫНЕСТИ ВСЕ В ПЕРЕМЕННЫЕ!!!!!!!!!!!!!!!!!!!!!! */
+
+#content:has(#mode-side-by-side:checked) #images-block {
+    height: 100%;
+    overflow: auto;
+}
+
+#content:has(#mode-side-by-side:checked) #images-container {
+    padding: 32px;
+    flex: 1 1 auto;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: auto;
+    position: relative;
+    height: 100%;
+}
+
+#content:has(#mode-side-by-side:checked) #images-container .image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+    flex: 1 1 auto;
+    padding-bottom: 32px;
+}
+
+#content:has(#mode-side-by-side:checked) #images-container .file-image {
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 4px 8px;
+    border: 1px solid rgb(232, 232, 232);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+#content:has(#mode-side-by-side:checked) #images-container .image-wrapper:last-child {
+    margin-right: 0;
+}
+
+#content:has(#mode-swap:checked) #images-block {
+    height: 100%;
+    overflow: auto;
+}
+
+#content:has(#mode-swap:checked) #images-container {
+    padding: 32px;
+    flex: 1 1 auto;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    /*justify-content: center;*/
+    flex-direction: row;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: auto;
+    position: relative;
+    height: 100%;
+}
+
+#content:has(#mode-swap:checked) #images-container .file-image {
+    position: absolute;
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 4px 8px;
+    border: 1px solid rgb(232, 232, 232);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 1 auto;
+    padding-bottom: 32px;
+}
+
+#content:has(#mode-swap:checked) #images-container #image-diff {
+    position: relative;
+    opacity: 0;
+}
+
+#content:has(#mode-swap:checked) #images-container .file-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+#content:has(#mode-slide:checked) #images-block {
+    height: 100%;
+    overflow: auto;
+}
+
+#content:has(#mode-slide:checked) #images-container {
+    padding: 32px;
+    flex: 1 1 auto;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    /*justify-content: center;*/
+    flex-direction: row;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: auto;
+    position: relative;
+    height: 100%;
+}
+
+#content:has(#mode-slide:checked) #images-container .file-image {
+    position: absolute;
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 4px 8px;
+    border: 1px solid rgb(232, 232, 232);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 1 auto;
+    padding-bottom: 32px;
+}
+
+#content:has(#mode-slide:checked) #images-container #image-diff {
+    position: relative;
+    opacity: 0;
+}
+
+#content:has(#mode-slide:checked) #images-container .file-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+#content:has(#mode-blend:checked) #images-block {
+    height: 100%;
+    overflow: auto;
+}
+
+#content:has(#mode-blend:checked) #images-container {
+    padding: 32px;
+    flex: 1 1 auto;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    /*justify-content: center;*/
+    flex-direction: row;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: auto;
+    position: relative;
+    height: 100%;
+}
+
+#content:has(#mode-blend:checked) #images-container .file-image {
+    position: absolute;
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 4px 8px;
+    border: 1px solid rgb(232, 232, 232);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 1 auto;
+    padding-bottom: 32px;
+}
+
+#content:has(#mode-blend:checked) #images-container #image-diff {
+    position: relative;
+    opacity: 0;
+}
+
+#content:has(#mode-blend:checked) #images-container .file-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+#content:has(#mode-blend:checked) #image-expect {
+    mix-blend-mode: difference;
+}
+
+
+
+
+.tabs-separator {
+    width: 1px;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    margin-left: 6px;
+    margin-right: 2px;
+}
+
+.tab-button {
+    -webkit-box-align: center;
+    align-items: center;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    background: #f7f9fc;
+    color: rgb(153, 153, 153);
+    cursor: pointer;
+    display: inline-flex;
+    font-size: 13px;
+    height: 28px;
+    -webkit-box-pack: center;
+    justify-content: center;
+    margin-top: 5px;
+    margin-left: 4px;
+    padding: 8px 15px;
+    opacity: 1;
+    transition: all 150ms ease-out;
+
+
+
+    cursor: pointer;
+
+    transition-property: color, background, box-shadow;
+    transition-duration: 150ms;
+    transition-timing-function: ease-out;
+
+    opacity: 1;
+
+
+
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    background: #F6F9FC;
+
+
+    box-shadow: #D9E8F2 0 0 0 1px inset;
+    border-radius: 4px;
+
+
+    user-select: none;
+    /* Стандартное свойство */
+    -webkit-user-select: none;
+    /* Для Safari и старых Chrome */
+    -moz-user-select: none;
+    /* Для Firefox */
+    -ms-user-select: none;
+    /* Для Internet Explorer/Edge */
+
+
+
+
+}
+
+.button-container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.tab-button:hover {
+    background: rgba(30, 167, 253, 0.12);
+    color: rgb(30, 167, 253);
+    box-shadow: rgba(30, 167, 253, 0.5) 0 0 0 1px inset;
+    transform: translateY(-1px)
+}
+
+.tab-button:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: rgba(0, 0, 0, 0.08) 0 3px 10px 0;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+}
+
+
+.tab-button:hover:after {
+    opacity: 1;
+}
+
+
+@font-face {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url('../fonts/nunito-sans-regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Nunito Sans';
+    font-style: italic;
+    font-weight: 400;
+    font-display: block;
+    src: url('../fonts/nunito-sans-italic.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-display: block;
+    src: url('../fonts/nunito-sans-bold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Nunito Sans';
+    font-style: italic;
+    font-weight: 700;
+    font-display: block;
+    src: url('../fonts/nunito-sans-bold-italic.woff2') format('woff2');
+}
+
+body {
+    font-family: "Nunito Sans", -apple-system, ".SFNSText-Regular", "San Francisco", BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: rgb(51, 51, 51);
+    background: rgb(246, 249, 252);
+    display: flex;
+    width: 100vw;
+    /* На всю ширину экрана */
+    height: 100vh;
+    /* На всю высоту экрана */
+    overflow: hidden;
+}
+
+#sidebar {
+    width: 320px;
+    min-width: 320px;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    user-select: none;
+}
+
+#logo {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#filters {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.filter-group label {
+    cursor: pointer;
+}
+
+.filter-group input {
+    cursor: pointer;
+}
+
+
+#filters label {
+    width: fit-content;
+    margin-top: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 3em;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px inset;
+    display: inline-flex;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    font-family: inherit;
+    transition: 150ms ease-out;
+    padding: 2px 10px;
+    margin-right: 4px;
+}
+
+#filters label:has(input[type="checkbox"]:not(:checked)) {
+    color: rgb(149, 149, 149);
+    filter: grayscale(100%);
+    opacity: 0.6;
+}
+
+#filters label:hover {
+    background: rgb(242, 242, 242);
+}
+
+/* Скрываем нативный чекбокс */
+#filters label input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+#file-tree {
+    flex-grow: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: 60px;
+}
+
+#file-tree::-webkit-scrollbar {
+    display: none;
+}
+
+.status-icon {
+    display: flex;
+    /* 🔹 Flex-контейнер */
+    align-items: center;
+    /* 🔹 Центрируем содержимое по вертикали */
+    justify-content: center;
+    margin-right: 5px;
+}
+
+/* Статус иконки файлов и папок */
+.status-icon svg {
+    shape-rendering: inherit;
+    transform: translate3d(0px, 0px, 0px);
+    display: block;
+    width: 12px;
+    height: 12px;
+    flex: 0 0 auto;
+}
+
+.filter-count::after {
+    content: attr(data-count) " " attr(data-label);
+}
+
+#filters label:has(input[type="checkbox"]:not(:checked)) .filter-count::after {
+    content: attr(data-label);
+}
+
+/* Папки и файлы */
+
+/*
+.folder:hover,
+.file:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.folder,
+.file {
+    cursor: pointer;
+    display: block;
+    cursor: pointer;
+    color: inherit;
+    align-items: center;
+    padding: 3px 3px;
+    display: flex;
+    white-space: nowrap;
+}
+
+.folder::before {
+    content: "";
+    display: inline-block;
+    width: 0px;
+    height: 0px;
+    margin-left: 8px;
+    margin-right: 5px;
+    color: rgba(153, 153, 153, 0.6);
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-left: 3px solid;
+    transform: none;
+    transition: transform 0.1s ease-out;
+}*/
+
+/* ---------------- */
+/*
+.folder,
+.file {
+    cursor: pointer;
+    display: block;
+    cursor: pointer;
+    color: inherit;
+    padding: 3px 3px;
+    display: flex;
+    white-space: nowrap;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+summary.folder {
+    flex-direction: row;
+    display: flex; 
+    width: 100%;
+}
+
+details {
+    width: 100%;
+}*/
+
+details {
+    display: block; /* ✅ Чтобы details тянулся на всю ширину */
+    width: 100%; /* ✅ Чтобы details не ограничивал ширину */
+  }
+  
+  summary {
+    display: flex; /* ✅ Делаем его флекс-контейнером */
+    width: 100%; /* ✅ Гарантируем, что он займет всю ширину */
+    cursor: pointer; /* ✅ Красивый курсор */
+    padding: 3px 3px; /* ✅ Отступы */
+    border-radius: 5px; /* (Опционально) */
+    align-items: center; /* ✅ Выравниваем содержимое */
+    box-sizing: border-box;
+  }
+  
+  summary::marker {
+    flex-shrink: 0; /* ✅ Чтоб маркер (стрелка) не сжимался */
+  }
+  
+  .tree-root {
+    width: 100%; /* ✅ Чтобы дерево занимало всю ширину */
+  }
+
+  .file {
+    display: flex; /* ✅ Делаем строку */
+    align-items: center; /* ✅ Выравниваем по вертикали */
+    padding: 3px 10px; /* ✅ Чуть красивее делаем */
+    cursor: pointer; /* ✅ Чтобы кликабельность была удобной */
+    white-space: nowrap; /* ✅ Чтобы текст не переносился */
+    align-items: center;
+  }
+  
+  .file .status-icon {
+    flex-shrink: 0; /* ✅ Запрещаем сжимать иконку */
+    width: 16px; /* ✅ Размер иконки */
+    height: 16px;
+  }
+  
+  .file .item-name {
+    flex-grow: 1; /* ✅ Разрешаем названию занимать всё свободное место */
+    overflow: hidden; /* ✅ Если слишком длинное имя — обрезаем */
+    text-overflow: ellipsis; /* ✅ Показываем `...` если не влезает */
+  }
+
+  .file:has(.file-checkbox:not(:checked)) .item-name{
+        text-decoration: line-through;
+        opacity: 0.7;
+    }   
+
+  /*.folder .file .file-checkbox {
+      pointer-events: none;
+  }*/
+
+
+  .folder .file .file-checkbox {
+    pointer-events: none;
+  }
+
+  summary.folder::before {
+    content: "";
+    display: inline-block;
+    width: 0px;
+    height: 0px;
+    margin-left: 8px;
+    margin-right: 5px;
+    color: rgba(153, 153, 153, 0.6);
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-left: 3px solid;
+    transform: none;
+    transition: transform 0.1s ease-out;
+  }
+
+  details[open] > summary.folder::before {
+    transform: rotateZ(90deg);
+  }
+
+  summary.folder:hover, div.file:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* ---------------- */
+
+/* Если папка раскрыта, data-expanded по-прежнему остаётся для переключения стрелки 
+label:has(input.folder-checkbox:checked)::before {
+    transform: rotateZ(90deg);
+}
+
+label:has(input.folder-checkbox:not(:checked)) + .folder-container {
+    display: none;
+}*/
+
+/* Стили для поля result с учетом приоритетов:*/
+
+/* ----------------------------- */
+
+details:has(.file.skip-skipped):not(:has(.file.result-error)):not(:has(.file.result-failed)):not(:has(.file.result-success)) summary.folder .status-icon,
+.skip-skipped {
+    color: rgb(167, 114, 206);
+}
+
+details:has(.file.result-success):not(:has(.file.result-error)):not(:has(.file.result-failed)) summary.folder .status-icon,
+.result-success {
+    color: rgb(102, 191, 60);
+}
+
+details:has(.file.result-failed):not(:has(.file.result-error)) summary.folder .status-icon,
+.result-failed {
+    color: rgb(255, 90, 73);
+}
+
+details:has(.file.result-error) summary.folder .status-icon,
+.result-error {
+    color: rgb(237, 162, 0);
+}
+
+
+/* ----------------------------- */
+
+/* Стили для поля view через классы */
+#filters label.view-viewed {
+    color: rgb(30, 167, 253);
+}
+
+#filters label.view-unviewed {
+    color: rgb(102, 102, 102);
+}
+
+/* Стили для поля verify через классы */
+#filters label.verify-verified {
+    color: rgb(255, 71, 133);
+}
+
+#filters label.verify-unverified {
+    color: rgb(102, 102, 102);
+}
+
+#filters label.skip-unskipped {
+    color: rgb(102, 102, 102);
+}
+
+/* Стили для поля view через классы */
+/*.file.view-viewed {
+    opacity: 0.7;
+}
+
+.file.view-unviewed {
+    opacity: 1;
+}*/
+
+/* Стили для поля verify через классы */
+/*.file.verify-verified {
+    text-decoration: line-through;
+}
+
+.file.verify-unverified {
+    text-decoration: none;
+}*/
+
+.folder span.item-name,
+.file span.item-name {
+    color: rgb(51, 51, 51);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    width: auto;
+}
+
+#file-tree .file[data-active="true"]{
+    background-color: rgb(30, 167, 253);
+    color: #fff;
+    font-weight: bold;
+    opacity: 1;
+}
+
+#file-tree .file[data-active="true"] span.item-name {
+    color: #fff;
+}
+
+
+
+/*#file-tree label:has(input[name="file"][type="radio"]:checked){
+    background-color: rgb(30, 167, 253);
+    color: #fff;
+    font-weight: bold;
+    opacity: 1;
+}
+
+#file-tree label:has(input[name="file"][type="radio"]:checked) span.item-name {
+    color: #fff;
+}
+
+#file-tree label input[name="file"][type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Вместо margin-bottom используем padding-bottom */
+#content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+
+    border-radius: 4px;
+
+    /* Оставляем отступы сверху / справа / слева, а снизу делаем padding */
+    margin: 10px 10px 10px 0;
+
+    background: #f6f6f6;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 5px 0px;
+    overflow: hidden;
+    border: 1px solid hsla(203, 50%, 30%, 0.15);
+    width: inherit;
+}
+
+#top-block h1 {
+    font-size: 13px;
+    margin: 0px;
+    padding: 10px 15px;
+    display: flex;
+    flex-wrap: wrap;
+    min-height: fit-content;
+    color: rgba(46, 52, 56, 0.75);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px -1px 0px 0px inset;
+    background: rgb(255, 255, 255);
+}
+
+#info-block {
+    font-size: 13px;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-wrap: wrap;
+    min-height: fit-content;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px -1px 0px 0px inset;
+    background: rgb(255, 255, 255);
+}
+
+.links-container {
+    background-color: #f7f9fc;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px -1px 0px 0px inset;
+}
+
+/* Каждый span с классом token будет иметь отступ снизу, кроме последнего */
+.token:not(:last-child) {
+    margin-bottom: 6px;
+}
+
+/* Комментарий (первый span) */
+.comment {
+    color: #708090;
+}
+
+/* Ссылки внутри token */
+.link {
+    color: #029CFD;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* Элемент перед ссылкой (номер и знак =) */
+.linkNumber {
+    color: #dd4a68;
+    margin-right: 1ch;
+    /* небольшой отступ после текста */
+}
+
+/* Стили для каждой ссылки внутри контейнера */
+.info-link {
+    margin-bottom: 6px;
+}
+
+#tabs-block {
+    font-size: 13px;
+    margin: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    min-height: fit-content;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px -1px 0px 0px inset;
+    background: rgb(255, 255, 255);
+}
+
+.tab-label {
+    white-space: normal;
+    display: inline-flex;
+    overflow: hidden;
+    vertical-align: top;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    padding: 0px 15px;
+    transition: color 0.2s linear, border-bottom-color 0.2s linear;
+    height: 34px;
+    line-height: 12px;
+    cursor: pointer;
+    background: transparent;
+    border-width: 3px 0px;
+    /* Сверху и снизу 3px, по бокам 0 */
+    border-style: solid;
+    border-color: transparent;
+    /* По умолчанию всё прозрачное */
+    border-radius: 0;
+    font-weight: bold;
+    font-size: 13px;
+    color: rgb(153, 153, 153);
+    /* Серый текст */
+    box-shadow: none;
+    user-select: none;
+    /* Стандартное свойство */
+    -webkit-user-select: none;
+    /* Для Safari и старых Chrome */
+    -moz-user-select: none;
+    /* Для Firefox */
+    -ms-user-select: none;
+    /* Для Internet Explorer/Edge */
+}
+
+.tab-container:has(input:checked) .tab-label {
+    border-color: transparent transparent rgb(30, 167, 253);
+    color: rgb(30, 167, 253);
+}
+
+/*button {
+    border: 0px;
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: 150ms ease-out;
+    transform: translate3d(0px, 0px, 0px);
+    vertical-align: top;
+    white-space: nowrap;
+    opacity: 1;
+    margin: 0px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    background: rgb(250, 250, 250);
+    color: rgb(51, 51, 51);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px inset;
+    border-radius: 4px;
+    padding: 10px 16px;
+    display: inline;
+    user-select: none;
+    overflow: visible;
+}*/
+
+/* =============================== */
+/* Контейнер изображений и т.д. */
